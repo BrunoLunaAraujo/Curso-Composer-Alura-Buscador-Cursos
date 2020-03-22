@@ -1,0 +1,42 @@
+{
+  "name": "bruno-luna/buscar-cursos",
+  "description": "Projeto que busca os cursos no site da Alura",
+  "type": "library",
+  "authors": [
+    {
+      "name": "Bruno Luna",
+      "email": "araujo_bruno2012@hotmail.com"
+    }
+  ],
+  "require": {
+    "guzzlehttp/guzzle": "^6.5",
+    "symfony/dom-crawler": "^4.2",
+    "symfony/css-selector": "^5.0"
+  },
+  "autoload": {
+    "psr-4": {
+        "Crawler\\BuscadorDeCursos\\": "src/"
+    }
+  },
+  "require-dev": {
+    "phpunit/phpunit": "9",
+    "squizlabs/php_codesniffer": "^3.5",
+    "phan/phan": "^2.6"
+  },
+  "scripts": {
+      "test": "phpunit tests\\BuscadorDeCursos.php",
+      "cs": "phpcs --standard=PSR12 src/",
+      "phan": "phan --allow-polyfill-parser",
+      "check": [
+        "@phan",
+        "@cs",
+        "@test"
+      ],
+      "post-update-cmd": [
+          "@test"
+      ]
+  },
+  "scripts-descriptions": {
+      "check": "Roda as verificações do código. PHAN, PHPCS e PHPUNIT"
+  }
+}
